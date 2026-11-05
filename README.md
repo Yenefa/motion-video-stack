@@ -6,6 +6,8 @@
 
 ![16 秒示例接触表](docs/demo-contact-sheet.jpg)
 
+[下载示例成片（Release）](https://github.com/Yenefa/motion-video-stack/releases/latest)。示例时间线没有旁白/音乐，因此示例片是无声的；这是内容策略，不是管线缺失。接入自己的音频后，`mix_audio.py` 会输出完整音轨。
+
 ## 它解决什么
 
 - **时间线是唯一真相源**：场景、字幕、旁白、混音共用同一组秒数与帧号，改一处不会各自漂移。
