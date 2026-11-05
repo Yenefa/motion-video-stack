@@ -1,0 +1,20 @@
+node_modules/
+out/
+*.log
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+
+# Generated audio (source audio belongs in audio/, mixes are reproducible)
+audio/mix-raw.m4a
+audio/mix-final.m4a
+audio/narration-only.m4a
+audio/narration-raw.m4a
+
+# Local media assets are content, never part of this stack repository
+public/clips/*
+!public/clips/README.md
+
+# Local upstream skills installed by scripts/install_skills.py
+skills/upstream/

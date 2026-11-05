@@ -1,0 +1,70 @@
+{
+  "vendored": [
+    {
+      "name": "motion-art-direction",
+      "path": "skills/motion-art-direction",
+      "upstream": "https://github.com/iart-ai/motion-design-skills",
+      "commit": "3c129f7",
+      "license": "MIT",
+      "role": "Art direction, motion language, tone, pacing, restraint"
+    },
+    {
+      "name": "video-shotcraft",
+      "path": "skills/video-shotcraft",
+      "upstream": "https://github.com/Vincentwei1021/video-shotcraft",
+      "commit": "43bd349",
+      "license": "Apache-2.0",
+      "role": "Shot recipe cards, reference implementations, motion vocabulary"
+    },
+    {
+      "name": "motion-video-director",
+      "path": "skills/director-workflow",
+      "upstream": null,
+      "commit": null,
+      "license": "MIT",
+      "role": "Six-phase directing workflow and timecoded acceptance rubric (original to this repo)"
+    }
+  ],
+  "upstream_only": [
+    {
+      "name": "ai-motion-director",
+      "repo": "https://github.com/Pluviobyte/video-production-skills",
+      "commit": "e19f1f3",
+      "subdir": "ai-motion-director",
+      "license": "NOASSERTION",
+      "note": "Upstream has no LICENSE file; not redistributed here."
+    },
+    {
+      "name": "remotion-best-practices",
+      "repo": "https://github.com/remotion-dev/skills",
+      "commit": "30d4553",
+      "subdir": "skills/remotion-best-practices",
+      "license": "NOASSERTION",
+      "note": "Upstream has no LICENSE file; not redistributed here."
+    },
+    {
+      "name": "remotion-create",
+      "repo": "https://github.com/remotion-dev/skills",
+      "commit": "30d4553",
+      "subdir": "skills/remotion-create",
+      "license": "NOASSERTION",
+      "note": "Upstream has no LICENSE file; not redistributed here."
+    },
+    {
+      "name": "remotion-render",
+      "repo": "https://github.com/remotion-dev/skills",
+      "commit": "30d4553",
+      "subdir": "skills/remotion-render",
+      "license": "NOASSERTION",
+      "note": "Upstream has no LICENSE file; not redistributed here."
+    },
+    {
+      "name": "remotion-studio",
+      "repo": "https://github.com/remotion-dev/skills",
+      "commit": "30d4553",
+      "subdir": "skills/remotion-studio",
+      "license": "NOASSERTION",
+      "note": "Upstream has no LICENSE file; not redistributed here."
+    }
+  ]
+}

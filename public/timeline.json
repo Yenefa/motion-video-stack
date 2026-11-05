@@ -1,0 +1,64 @@
+{
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "seconds": 16.0,
+  "frames": 480,
+  "music": null,
+  "target_lufs": -17.0,
+  "scenes": [
+    {
+      "id": "open",
+      "kind": "opening",
+      "start": 0.0,
+      "seconds": 4.0,
+      "frames": 120,
+      "title": "MOTION VIDEO STACK",
+      "chapter": "",
+      "details": [
+        "Remotion 4",
+        "JSON timeline",
+        "Python audio pipeline"
+      ]
+    },
+    {
+      "id": "chapter",
+      "kind": "chapter",
+      "start": 4.0,
+      "seconds": 3.0,
+      "frames": 90,
+      "title": "从一条时间线开始",
+      "chapter": "01 TEMPLATE",
+      "details": [
+        "场景 / 字幕 / 音频都由数据驱动"
+      ]
+    },
+    {
+      "id": "device",
+      "kind": "device",
+      "start": 7.0,
+      "seconds": 6.0,
+      "frames": 180,
+      "title": "代码驱动每一帧",
+      "chapter": "02 PIPELINE",
+      "details": [
+        "场景用 JSON 描述",
+        "字幕与音频共用时间线"
+      ]
+    },
+    {
+      "id": "close",
+      "kind": "closing",
+      "start": 13.0,
+      "seconds": 3.0,
+      "frames": 90,
+      "title": "REPRODUCE",
+      "chapter": "",
+      "details": [
+        "clone → install → render → assemble"
+      ]
+    }
+  ],
+  "narration": [],
+  "tuantuan": null
+}

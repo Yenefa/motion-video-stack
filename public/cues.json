@@ -1,0 +1,28 @@
+{
+  "cues": [
+    {
+      "start": 0.6,
+      "end": 3.6,
+      "lines": [
+        "一个可复现的代码驱动视频工程。"
+      ],
+      "speaker": "narration"
+    },
+    {
+      "start": 7.3,
+      "end": 12.4,
+      "lines": [
+        "场景、字幕与音频共用一条时间线。"
+      ],
+      "speaker": "narration"
+    },
+    {
+      "start": 13.4,
+      "end": 15.7,
+      "lines": [
+        "替换内容，保留管线。"
+      ],
+      "speaker": "narration"
+    }
+  ]
+}
