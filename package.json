@@ -6,7 +6,7 @@
   "description": "Reproducible code-driven motion video stack: Remotion + JSON timeline + Python audio pipeline",
   "scripts": {
     "studio": "remotion studio src/index.tsx",
-    "render": "node scripts/ensure_out.mjs && remotion render src/index.tsx MotionStackTemplate out/demo-silent.mp4 --codec=h264 --pixel-format=yuv420p --concurrency=4 --crf=18 --muted",
+    "render": "node scripts/render.mjs",
     "timeline": "node scripts/py.mjs scripts/build_timeline.py",
     "mix": "node scripts/py.mjs scripts/mix_audio.py",
     "assemble": "node scripts/py.mjs scripts/assemble.py"
