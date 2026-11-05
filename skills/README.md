@@ -20,6 +20,7 @@
 | `remotion-create` | 新建 Remotion 工程/合成 | 同上 | 同上 |
 | `remotion-render` | 导出、编码、透明视频 | 同上 | 同上 |
 | `remotion-studio` | Studio 预览与迭代 | 同上 | 同上 |
+| `motion-director` | 早期本地导演编排版 | 无公开上游 / 无许可证 | 不随仓库分发；本仓库用 `motion-video-director` 覆盖同一层 |
 
 安装：
 
