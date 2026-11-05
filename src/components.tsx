@@ -212,7 +212,7 @@ export const CaptionBar: React.FC<{cues: Cue[]; fps: number}> = ({cues, fps}) =>
         zIndex: 40,
       }}
     >
-      {cue.speaker === 'tuantuan' ? (
+      {cue.speaker === 'native' ? (
         <span
           style={{
             fontFamily: SANS,

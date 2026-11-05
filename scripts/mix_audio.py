@@ -1,13 +1,13 @@
 """Mix narration + optional music into audio/mix-final.m4a.
 
 Reads public/timeline.json:
-  seconds, narration[], tuantuan?, music?
+  seconds, narration[], native_audio?, music?
 
 Strategy:
   1. place every narration segment at its timeline start with adelay;
   2. mix voices with normalize=0 (no auto gain);
   3. optionally duck the music to a fixed low level and mute it during the
-     tuantuan segment with 0.3s ramps;
+     native-audio segment with 0.3s ramps;
   4. measure integrated loudness, then apply one static gain (not loudnorm,
      which behaves like an AGC), and limit the true peak.
 
@@ -63,10 +63,10 @@ def main() -> None:
     total = float(plan["seconds"])
     target_i = float(os.environ.get("TARGET_I", plan.get("target_lufs", -17.0)))
     placements = plan.get("narration", [])
-    tuan = plan.get("tuantuan")
+    native = plan.get("native_audio")
     music = plan.get("music")
 
-    if not placements and not tuan and not music:
+    if not placements and not native and not music:
         print("no narration/music in timeline; skip audio mix")
         return
 
@@ -87,20 +87,20 @@ def main() -> None:
         input_count += 1
         inputs += ["-i", str(ROOT / "audio" / p["file"])]
         voice_entries.append((idx, float(p["start"])))
-    if tuan:
-        if "file" not in tuan:
-            raise SystemExit("timeline.tuantuan must contain a file")
+    if native:
+        if "file" not in native:
+            raise SystemExit("timeline.native_audio must contain a file")
         idx = input_count
         input_count += 1
-        inputs += ["-i", str(ROOT / "audio" / tuan["file"])]
-        voice_entries.append((idx, float(tuan["start"])))
+        inputs += ["-i", str(ROOT / "audio" / native["file"])]
+        voice_entries.append((idx, float(native["start"])))
 
     def build(gain_db: float, out_name: str) -> None:
         filters = []
         labels = []
         for i, (idx, start) in enumerate(voice_entries):
             ms = round(start * 1000)
-            vol = 0.50 if tuan and i == len(voice_entries) - 1 else 1.0
+            vol = 0.50 if native and i == len(voice_entries) - 1 else 1.0
             filters.append(
                 f"[{idx}:a]aresample=48000,aformat=sample_fmts=fltp:channel_layouts=stereo,"
                 f"adelay={ms}|{ms},volume={vol}[v{i}]"
@@ -114,9 +114,9 @@ def main() -> None:
             )
 
         if music_index is not None:
-            if tuan:
-                mute_start = float(tuan["start"]) - 0.30
-                mute_end = float(tuan["end"])
+            if native:
+                mute_start = float(native["start"]) - 0.30
+                mute_end = float(native["end"])
                 expr = (
                     f"if(lt(t,{mute_start:.3f}),1,"
                     f"if(lt(t,{mute_start + 0.3:.3f}),1-(t-{mute_start:.3f})/0.3,"

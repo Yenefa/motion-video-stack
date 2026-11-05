@@ -144,7 +144,7 @@ def main() -> None:
         "target_lufs": float(project.get("target_lufs", -17.0)),
         "scenes": scenes,
         "narration": narration,
-        "tuantuan": None,
+        "native_audio": None,
     }
     PUBLIC.mkdir(parents=True, exist_ok=True)
     (PUBLIC / "timeline.json").write_text(

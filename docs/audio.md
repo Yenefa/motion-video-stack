@@ -6,14 +6,14 @@
 
 - `audio/<file>`：旁白，放在 `content/narration.json` 的 `file`；
 - `content/project.json` 的 `music`：背景音乐，可为 `null`；
-- 可选 `timeline.tuantuan`：一段原生音频窗口（见下）。
+- 可选 `timeline.native_audio`：一段原生音频窗口（见下）。
 
 ## 混音步骤
 
 1. 每条旁白 `aresample=48000 → aformat=fltp/stereo → adelay=start_ms → volume=1.0`；
 2. 所有旁白 `amix=inputs=N:normalize=0`，`apad` 到片长后 `atrim`；
 3. 音乐 `atrim` 到片长，线性增益 `MUSIC_LEVEL`（默认 0.12），最后 3 秒淡出；
-4. 如果有 tuantuan 窗口，音乐在该区间前 0.3s 淡出、后 0.3s 淡入，区间内音量为 0；
+4. 如果有 native_audio 窗口，音乐在该区间前 0.3s 淡出、后 0.3s 淡入，区间内音量为 0；
 5. 旁白 + 音乐 `amix=normalize=0`，加一次静态增益，`alimiter=limit=0.80`；
 6. 输出 AAC 192kbps / 48kHz / 立体声。
 
@@ -44,8 +44,8 @@ mix-raw (0 dB) → ebur128 测 I → gain = target - measured → mix-final (gai
 如果片中某段要播放设备原声、并且音乐必须完全静音，在 `timeline.json` 里加：
 
 ```json
-"tuantuan": {
-  "file": "tuantuan.wav",
+"native_audio": {
+  "file": "device-audio.wav",
   "start": 79.6,
   "duration": 8.1,
   "end": 87.7
@@ -62,7 +62,7 @@ ffmpeg -hide_banner -nostats -ss 79.6 -t 8.1 -i audio/mix-final.m4a -af volumede
 ffmpeg -hide_banner -nostats -ss 79.6 -t 8.1 -i audio/narration-only.m4a -af volumedetect -f null -
 ```
 
-本项目模板的 `tuantuan` 为 `null`，上述是扩展用法。
+本项目模板的 `native_audio` 为 `null`，上述是扩展用法。
 
 ## 验收
 

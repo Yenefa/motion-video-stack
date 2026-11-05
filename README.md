@@ -142,7 +142,7 @@ out/                渲染产物（不入库）
 2. 可选在 `content/project.json` 的 `music` 写音乐路径（相对仓库根目录）；
 3. 重新 `npm run timeline`，再 `npm run assemble`。
 
-混音策略、目标响度、团团/原生音频静音窗口和环境变量见 [docs/audio.md](docs/audio.md)。
+混音策略、目标响度、原生音频静音窗口和环境变量见 [docs/audio.md](docs/audio.md)。
 
 ## 添加真实录屏
 
